@@ -7,15 +7,15 @@ import os
 
 st.set_page_config(page_title="Doc Generator", layout="centered")
 
-st.title("📄 Personalized Document Generator")
-st.write("Upload your Excel/CSV and Word Template to generate individual files.")
+st.title("📄 ABCs LOI Generator")
+st.write("Upload your Excel/CSV and Word Template to generate individual LOI files.")
 
 # --- File Uploaders ---
 col1, col2 = st.columns(2)
 with col1:
-    csv_file = st.file_uploader("Upload CSV/Excel", type=['csv', 'xlsx'])
+    csv_file = st.file_uploader("Upload Student List CSV/Excel", type=['csv', 'xlsx'])
 with col2:
-    template_file = st.file_uploader("Upload Word Template", type=['docx'])
+    template_file = st.file_uploader("Upload Template of Company LOI in MS Word format", type=['docx'])
 
 if csv_file and template_file:
     # Read Data
@@ -72,4 +72,5 @@ if csv_file and template_file:
             data=zip_buffer.getvalue(),
             file_name="Personalized_Documents.zip",
             mime="application/zip"
+
         )
